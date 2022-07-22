@@ -1,6 +1,7 @@
 
-let result = null;
-let operator = null;
+let result = '';
+let operator = '';
+let displayValue = '';
 
 // Ask for the type of operation 
 //operator = prompt("Choose operator: 'addition', 'subtraction', 'multiplication' or 'division'");
@@ -13,7 +14,7 @@ function operate(operator, aNumber, bNumber) {
         });
         console.log(sum)
     };
-    
+
     function substract(array) {
         difference = array.reduce((total, item) => {
             return total - item;
@@ -35,7 +36,6 @@ function operate(operator, aNumber, bNumber) {
         console.log(quotient);
     };
 
-
     //Actual operation 
     let array = [aNumber, bNumber];
     if (operator=="addition") {
@@ -51,5 +51,49 @@ function operate(operator, aNumber, bNumber) {
                 'multiplication' or 'division'");
             operate();
         }
-
 }
+
+// DOM manipulation
+
+const buttons = document.querySelectorAll('button');
+const screen = document.querySelector('#screen')
+const content = document.createElement('p')
+screen.appendChild(content);
+const eraseButton = document.getElementById('clear-button');
+
+function addContent(input) {
+    content.textContent=+ input;
+}
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        addContent(button.textContent);
+        displayValue += button.textContent;
+        content.textContent = displayValue;
+    });
+});
+
+//Result button 
+
+
+
+
+//Clear button 
+function reset() {
+content.textContent='';
+}
+
+eraseButton.addEventListener('click', () => {
+    displayValue = '';
+    reset();
+    
+    }
+    )
+
+
+//Create the functions that populate the display when you click the number buttons. 
+//You should be storing the ‘display value’ in a variable somewhere for use in the next step.
+

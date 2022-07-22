@@ -11,6 +11,22 @@ button {
     border: solid 5px black;
 }
 
+
+p {
+    font-size: 3rem;
+    width: 21rem ;
+    height: 7rem;
+    font-weight: bold;
+    margin: 0;
+    word-break: break-all;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 4.5px;
+ }
+
 .calculator {
     width: 22rem;
     display: flex;
@@ -21,9 +37,12 @@ button {
     padding: 1rem;
     border-radius: 10px;
     background-color: beige;
+
 }
 
-.screen {
+
+
+#screen {
     border-radius: 10px;
     border: solid 5px black;
     height: 8rem;
