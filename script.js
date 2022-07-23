@@ -149,6 +149,7 @@ function reset() {
 content.textContent='';
 displayValue='';
 storedValue=''
+result='';
 }
 
 eraseButton.addEventListener('click', () => {
