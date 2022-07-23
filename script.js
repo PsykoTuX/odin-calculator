@@ -1,4 +1,3 @@
-
 let result = '';
 let operator = '';
 let displayValue = '';
@@ -65,7 +64,7 @@ function operate(operator, aNumber, bNumber) {
 
 // DOM manipulation
 
-const buttons = document.querySelectorAll('.digit');
+const digits = document.querySelectorAll('.digit');
 const operators = document.querySelectorAll('.operator');
 const screen = document.querySelector('#screen');
 const content = document.createElement('p');
@@ -80,7 +79,7 @@ function addContent(input) {
 }
 
 // we use the .forEach method to iterate through each button
-buttons.forEach((button) => {
+digits.forEach((button) => {
 
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
@@ -128,6 +127,7 @@ function calculusResult() {
     storedValue = result;
     console.log(result);
     console.log(storedValue);
+    displayValue = '';
 
 }
 
@@ -157,8 +157,3 @@ eraseButton.addEventListener('click', () => {
     reset();
     }
     )
-
-
-//Create the functions that populate the display when you click the number buttons. 
-//You should be storing the ‘display value’ in a variable somewhere for use in the next step.
-
