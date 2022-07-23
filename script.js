@@ -72,6 +72,7 @@ const content = document.createElement('p');
 screen.appendChild(content);
 const eraseButton = document.getElementById('clear-button');
 const equalButton = document.getElementById('equal');
+const backspaceButton = document.getElementById('backspace-button');
 
 
 function addContent(input) {
@@ -91,6 +92,9 @@ buttons.forEach((button) => {
 
 operators.forEach((item) => {
     item.addEventListener('click', () => {
+        if ((storedValue !='') && (displayValue !='')) {
+            calculusResult();
+        }
         operator=item.id;
         console.log(storedValue);
 
@@ -98,7 +102,7 @@ operators.forEach((item) => {
             storedValue = displayValue;
         }
 
-
+       
         
         displayValue = ''
     })
@@ -107,6 +111,11 @@ operators.forEach((item) => {
 
 
 function calculusResult() {
+    if (storedValue == '' && displayValue == "") {
+        addContent(0);
+        return 0
+        ;
+    }
     console.log(operator);
     console.log(storedValue);
     console.log(displayValue);
@@ -119,7 +128,6 @@ function calculusResult() {
     storedValue = result;
     console.log(result);
     console.log(storedValue);
-    result = ''
 
 }
 
@@ -129,18 +137,24 @@ equalButton.addEventListener('click', () => {
     calculusResult()
 });
 
+//Backspace button
+
+backspaceButton.addEventListener('click', () => {
+    displayValue=displayValue.slice(0,-1);
+    addContent(displayValue);
+})
 
 //Clear button 
 function reset() {
 content.textContent='';
 displayValue='';
+storedValue=''
 }
 
 eraseButton.addEventListener('click', () => {
     displayValue = '';
     storedValue = '';
     reset();
-    
     }
     )
 
