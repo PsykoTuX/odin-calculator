@@ -43,6 +43,9 @@ function operate(operator, aNumber, bNumber) {
         quotient = array.reduce((total, item) => {
             return total / item;
         });
+        if (bNumber==0) {
+            quotient = 0;
+        }
         console.log(quotient);
         return quotient;
     };
